@@ -1,3 +1,7 @@
 {
-	"/": []
+	"/(app)": [],
+	"/": [],
+	"/api/auth/registration": [
+		"src/routes/api/auth/registration/+server.ts"
+	]
 }
