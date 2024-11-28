@@ -11,7 +11,7 @@
         Level up your
         <span class="text-primary relative inline-block">
             Facebook
-            <img class="absolute left-0 bottom-0 w-full h-fit translate-y-[55%]" src="/underline.png" alt="underline">
+            <img class="absolute left-0 bottom-0 w-full h-fit translate-y-[53%]" src="/underline.png" alt="underline">
 
         </span>
         ads with
@@ -19,7 +19,7 @@
     </h1>
     </div>
     
-    <Card.Root class="w-full max-w-sm">
+    <Card.Root class="w-full max-w-sm mb-20">
         <Card.Header>
             <Card.Title class="text-2xl">Login</Card.Title>
             <Card.Description>Enter your email below to login to your account.</Card.Description>
