@@ -1,5 +1,4 @@
 import { db } from '$lib/db.js';
-import { redirect } from '@sveltejs/kit';
 import bcrypt from 'bcrypt';
 
 function tokengen() {
@@ -16,6 +15,18 @@ var email_regex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,4}$/;
 
 export async function POST({ request }) {
 	const body = await request.json();
+
+	if (!body.email || !body.password) {
+		return new Response(
+			JSON.stringify({ message: 'Email and password are required', status: 401 }),
+			{
+				status: 401,
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+		);
+	}
 
 	body.email = body.email.replace(/\s/g, '');
 
@@ -64,7 +75,7 @@ export async function POST({ request }) {
 			JSON.stringify({
 				message: 'User created',
 				status: 200,
-				redirect: `/verify?email=${body.email}`
+				redirect: `/verify?email=${body.email}&token=${userAuthToken}`
 			}),
 			{
 				status: 200,
