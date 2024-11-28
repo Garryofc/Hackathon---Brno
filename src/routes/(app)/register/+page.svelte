@@ -20,16 +20,19 @@
     </script>
   
   <main class="flex flex-col items-center justify-center bg-[url('/landingBG.jpg')] bg-cover bg-center w-[100vw] h-[100vh]">
-    <h1 class="text-4xl md:text-5xl text-center mb-8 font-extrabold">
-      Level up your
-      <span class="text-primary relative inline-block">Facebook
-        <img class="absolute left-0 bottom-0 w-full h-fit translate-y-[53%]" src="/underline.png" alt="underline">
-        
-      </span>
-      ads with
-      <span class="text-primary">AI</span>
-  </h1>
-      <Card.Root class="w-full max-w-sm">
+    <div class="mb-20">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-center ">
+            Level up your
+            <span class="text-primary relative inline-block">
+                Facebook
+                <img class="absolute left-0 bottom-0 w-full h-fit translate-y-[53%]" src="/underline.png" alt="underline">
+    
+            </span>
+            ads with
+            <span class="text-primary">AI</span>
+        </h1>
+        </div>
+      <Card.Root class="w-full max-w-sm mb-20">
         <form on:submit={handleSubmit}>
           <Card.Header>
             <Card.Title class="text-2xl">Register</Card.Title>
