@@ -22,6 +22,7 @@
     import * as Table from "$lib/components/ui/table/index.js";
     import { onMount } from "svelte";
 	import { Description } from "formsnap";
+	import { Content } from "$lib/components/ui/accordion/index.js";
 
 
 
@@ -111,16 +112,42 @@
 
         <Card.Root class="col-span-5">
           <Card.Header>
-            <Card.Title>neco</Card.Title>
-            <Card.Description>Neco</Card.Description>
+            <Card.Title class="flex items-center justify-between">Favourite products <i class="bi bi-bag"></i> </Card.Title>
+            <Card.Description>Top products this month</Card.Description>
           </Card.Header>
+          <Card.Content class="gap-5 flex flex-col">  
+            <div class="h-[80%]">
+              <Card.Root>
+                <Card.Header class="flex flex-row items-center p-6 justify-between w-full">
+                  <div class="text-center font-black">
+                    <bold>35.7%</bold><p class="font-semibold">Product A</p>
+                  </div>
+                  <div class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-blue-600 transition duration-300">
+                    Create ad
+                  </div>                
+                </Card.Header>
+              </Card.Root>
+              
+              {#each Array(4) as _, i} 
+              <Card.Root><Card.Header class="flex items-center p-3 justify-between flex-row"><bold>28.7%</bold><p>Product {i}</p></Card.Header></Card.Root>
+              {/each}
+
+            </div>
+            <div class="flex justify-center">
+              <div class="bg-[#4E6BF3] text-center text-white h-full w-[40%] px-4 py-2 rounded-md cursor-pointer hover:bg-blue-600 transition duration-300">
+                <i class="bi bi-plus-circle-fill"></i>
+                Add Product
+              </div>
+            </div>
+            
+          </Card.Content>
           
           
         </Card.Root>
 
         <Card.Root class="col-span-4">
           <Card.Header>
-            <Card.Title>Recent Sales</Card.Title>
+            <Card.Title class="flex items-center justify-between">Recent Sales <i class="bi bi-currency-dollar"></i> </Card.Title>
             <Card.Description>x sales this month</Card.Description>
           </Card.Header>
           <Card.Content class="gap-8 flex flex-col">  
@@ -129,7 +156,7 @@
               <div class="">
                 <p class="text-sm font-medium leading-none">Product {i+1}</p>
               </div>
-              <div class="font-medium text-right">+$1,999.00</div>
+              <div class="font-medium text-right">$1,999.00</div>
             </div>
             {/each}
           </Card.Content>
