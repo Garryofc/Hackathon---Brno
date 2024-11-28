@@ -18,8 +18,8 @@
   <main class="flex flex-col items-center justify-center bg-[url('/landingBG.jpg')] bg-cover bg-center w-[100vw] h-[100vh]">
     <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">
       Level up your
-      <span class="text-primary font-bold">Facebook
-      <span class="absolute w-full h-[2px] bg-center bg-no-repeat bg-[url('/underline.png')] -bottom-1 left-0"></span> 
+      <span class="text-primary relative inline-block font-bold">Facebook
+        <img class="absolute left-0 bottom-0 w-full h-fit translate-y-[53%]" src="/underline.png" alt="underline">
         
       </span>
        ads with

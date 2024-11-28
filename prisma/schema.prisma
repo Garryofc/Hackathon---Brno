@@ -11,7 +11,7 @@ model User {
   id            String   @id @default(uuid())
   email         String   @unique
   userAuthToken String
-  name          String?
+  name          String
   passwordHash  String
   verified      Boolean  @default(false)
 
