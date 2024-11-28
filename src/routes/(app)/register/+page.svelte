@@ -7,9 +7,12 @@
   
   <main class="flex flex-col items-center justify-center bg-[url('/landingBG.jpg')] bg-cover bg-center w-[100vw] h-[100vh]">
     <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">
-      <span class="text-black">Level up your </span>
-      <span class="text-primary font-bold">Facebook</span>
-      <span class="text-black"> ads with </span>
+      Level up your
+      <span class="text-primary font-bold">Facebook
+      <span class="absolute w-full h-[2px] bg-center bg-no-repeat bg-[url('/underline.png')] -bottom-1 left-0"></span> 
+        
+      </span>
+       ads with
       <span class="text-primary font-bold">AI</span>
   </h1>
       <Card.Root class="w-full max-w-sm">
@@ -35,7 +38,7 @@
                 <Input id="password" type="password" required />
             </div>
             <div class="text-right">
-              <a href="/" class="text-sm text-blue-500 hover:underline">
+              <a href="/" class="text-sm text-primary hover:underline">
                  Already have an account?
               </a>
             </div>
