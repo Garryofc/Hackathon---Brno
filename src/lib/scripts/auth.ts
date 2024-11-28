@@ -1,7 +1,7 @@
 export class Auth {
     static async login(loginData: any) {
 		try {
-            const response = await fetch('/api/auth/registration', {
+            const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
