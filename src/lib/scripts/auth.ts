@@ -9,9 +9,9 @@ export class Auth {
 		} else if (!loginData.password) {
 			toast.error('Password cannot be empty!');
 		} else if (!email_regex.test(loginData.email)) {
-			toast.error('Invalid email format! Supported format: john.doe@email.com');
-		} else if (loginData.password.length < 6) {
-			toast.error('Password must be longer than 6 characters!');
+			toast.error('Invalid email format! Supported format: alexmorgan@email.com');
+		} else if (loginData.password.length < 8) {
+			toast.error('Password must be longer than 8 characters!');
 		} else {
 			try {
 				await fetch('/api/auth/login', {
@@ -63,7 +63,7 @@ export class Auth {
 		} else if (registerData.passwordConfirm === '') {
 			toast.error('Password confirmation cannot be empty!');
 		} else if (!email_regex.test(registerData.email)) {
-			toast.error('Invalid email format! Supported format: alan.morgan123@email.com');
+			toast.error('Invalid email format! Supported format: alexmorgan@email.com');
 		} else if (registerData.password.length < 6) {
 			toast.error('Password must be longer than 6 characters!');
 		} else if (registerData.password !== registerData.passwordConfirm) {
