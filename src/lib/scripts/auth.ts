@@ -1,3 +1,6 @@
+import { toast } from "svelte-sonner";
+
+
 export class Auth {
     static async login(loginData: any) {
 		try {
@@ -16,11 +19,11 @@ export class Auth {
                 location.href = data.redirect;
             } else {
                 console.error(data.message);
-                alert(`Error: ${data.message}`);
+                toast.error(`Error: ${data.message}`);
             }
         } catch (error) {
             console.error('Error during login:', error);
-            alert('An unexpected error occurred.');
+            toast.error('An unexpected error occurred.');
         }
 	}
 
@@ -41,11 +44,11 @@ export class Auth {
                 location.href = data.redirect;
             } else {
                 console.error(data.message);
-                alert(`Error: ${data.message}`);
+                toast.error(`Error: ${data.message}`);
             }
         } catch (error) {
             console.error('Error during registration:', error);
-            alert('An unexpected error occurred.');
+            toast.error('An unexpected error occurred.');
         }
     }
 

@@ -1,8 +1,10 @@
 <script>
 	import '../../app.css';
+	import Toaster from "$lib/components/ui/sonner/sonner.svelte";
   </script>
   
-  <main>
+  
+	<Toaster />
 	<slot />
-  </main>
+
   
