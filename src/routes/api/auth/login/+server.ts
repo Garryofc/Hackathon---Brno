@@ -92,7 +92,7 @@ export async function POST({ request }) {
 				status: 200,
 				headers: {
 					'Content-Type': 'application/json',
-					'Set-Cookie': `token=${user.userAuthToken}; Path=/; HttpOnly; Secure; SameSite=Strict; Expires=${expires.toUTCString()}`
+					'Set-Cookie': `AuthToken=${user.userAuthToken}; Path=/; HttpOnly; Secure; SameSite=Strict; Expires=${expires.toUTCString()}`
 				}
 			}
 		);
