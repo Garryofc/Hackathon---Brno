@@ -74,7 +74,8 @@ export async function POST({ request }) {
 			data: {
 				email: body.email,
 				passwordHash: passwordHash,
-				userAuthToken: userAuthToken
+				userAuthToken: userAuthToken,
+				name: body.name
 			}
 		});
 
