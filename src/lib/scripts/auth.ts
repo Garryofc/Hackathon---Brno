@@ -1,6 +1,27 @@
 export class Auth {
-    static async login() {
+    static async login(loginData: any) {
+		try {
+            const response = await fetch('/api/auth/registration', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                body: JSON.stringify(loginData)
+            });
 
+            const data = await response.json();
+
+            if (data.redirect) {
+                location.href = data.redirect;
+            } else {
+                console.error(data.message);
+                alert(`Error: ${data.message}`);
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+            alert('An unexpected error occurred.');
+        }
 	}
 
     static async register(registerData: any) {

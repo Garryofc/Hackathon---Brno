@@ -3,6 +3,18 @@
     import * as Card from "$lib/components/ui/card/index.js";
     import { Input } from "$lib/components/ui/input/index.js";
     import { Label } from "$lib/components/ui/label/index.js";
+
+    import { Auth } from "$lib/scripts/auth.js";
+
+    var login_data = {
+		email: '',
+		password: '',
+	};
+
+    async function handleSubmit(event: Event) {
+        event.preventDefault();
+        await Auth.login(login_data);
+    }
 </script>
 
 <main class="flex flex-col items-center justify-center bg-[url('/landingBG.jpg')] bg-cover bg-center w-[100vw] h-[100vh] pt-8">
@@ -20,6 +32,8 @@
     </div>
     
     <Card.Root class="w-full max-w-sm mb-20">
+        <form on:submit={handleSubmit}>
+
         <Card.Header>
             <Card.Title class="text-2xl">Login</Card.Title>
             <Card.Description>Enter your email below to login to your account.</Card.Description>
@@ -27,11 +41,11 @@
         <Card.Content class="grid gap-4">
             <div class="grid gap-2">
                 <Label for="email">Email</Label>
-                <Input id="email" type="email" placeholder="alexmorgan@gmail.com" required />
+                <Input bind:value={login_data.email} id="email" type="email" placeholder="alexmorgan@gmail.com" required />
             </div>
             <div class="grid gap-2">
                 <Label for="password">Password</Label>
-                <Input id="password" type="password" required />
+                <Input bind:value={login_data.password} id="password" type="password" required />
             </div>
             <div class="text-right">
                 <a href="/register" class="text-sm text-blue-500 hover:underline">
@@ -40,7 +54,9 @@
             </div>
         </Card.Content>
         <Card.Footer>
-            <Button class="w-full">Sign in</Button>
+            <Button type='submit' class="w-full">Sign in</Button>
         </Card.Footer>
+    </form>
+
     </Card.Root>
 </main>

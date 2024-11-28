@@ -10,7 +10,7 @@
 		name: '',
 		email: '',
 		password: '',
-        passwordConfirm: '',
+        passwordConfirm: ''
 	};
 
     async function handleSubmit(event: Event) {
