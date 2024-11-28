@@ -39,6 +39,7 @@
 		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@types/bcrypt": "^5.0.2",
+		"@types/d3-scale": "^4.0.8",
 		"@types/nodemailer": "^6.4.16",
 		"@types/uuid": "^10.0.0",
 		"autoprefixer": "^10.4.20",
@@ -70,6 +71,7 @@
 	"dependencies": {
 		"@prisma/client": "^5.22.0",
 		"bcrypt": "^5.1.1",
+		"d3-scale": "^4.0.2",
 		"nodemailer": "^6.9.15",
 		"openai": "^4.69.0",
 		"uuid": "^10.0.0"
