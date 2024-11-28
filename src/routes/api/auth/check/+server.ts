@@ -14,7 +14,7 @@ export async function GET({ request }) {
 		);
 	}
 
-	var session = cookies.split('AuthSession=')[1]?.split(';')[0];
+	var session = cookies.split('AuthToken=')[1]?.split(';')[0];
 
 	if (!session) {
 		return new Response(
@@ -30,7 +30,8 @@ export async function GET({ request }) {
 
 	const user = await db.user.findFirst({
 		select: {
-			id: true
+			id: true,
+			verified: true
 		},
 		where: {
 			userAuthToken: session
@@ -44,12 +45,22 @@ export async function GET({ request }) {
 				'Content-Type': 'application/json'
 			}
 		});
+	} else if (user.verified == false) {
+		return new Response(
+			JSON.stringify({ message: 'Email not verified', status: 401, redirect: '/' }),
+			{
+				status: 401,
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+		);
+	} else {
+		return new Response(JSON.stringify({ status: 200 }), {
+			status: 200,
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
 	}
-
-	return new Response(JSON.stringify({ status: 200 }), {
-		status: 200,
-		headers: {
-			'Content-Type': 'application/json'
-		}
-	});
 }

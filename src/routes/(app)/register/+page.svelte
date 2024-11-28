@@ -4,6 +4,8 @@
 	import { Input } from '$lib/components/ui/input/index.js';
 	import { Label } from '$lib/components/ui/label/index.js';
 	import { Auth } from '$lib/scripts/auth.js';
+	import { onMount } from 'svelte';
+	export let data;
 
 	var register_data = {
 		name: '',
@@ -11,6 +13,12 @@
 		password: '',
 		passwordConfirm: ''
 	};
+
+	onMount(() => {
+		if (data.status == 200) {
+			location.href = '/app';
+		}
+	});
 </script>
 
 <main

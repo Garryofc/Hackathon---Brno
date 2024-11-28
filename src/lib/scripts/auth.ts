@@ -112,8 +112,12 @@ export class Auth {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				if (data.status == 200) {
-					location.href = '/app';
+				if (data.status != 200) {
+					if (data.redirect) {
+						location.href = data.redirect;
+					} else {
+						location.href = '/';
+					}
 				}
 			});
 	}

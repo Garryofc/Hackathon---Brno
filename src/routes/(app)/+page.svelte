@@ -3,14 +3,20 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import { Input } from '$lib/components/ui/input/index.js';
 	import { Label } from '$lib/components/ui/label/index.js';
-	import { toast } from 'svelte-sonner';
-
 	import { Auth } from '$lib/scripts/auth.js';
+	import { onMount } from 'svelte';
+	export let data;
 
 	var login_data = {
 		email: '',
 		password: ''
 	};
+
+	onMount(() => {
+		if (data.status == 200) {
+			location.href = '/app';
+		}
+	});
 </script>
 
 <main
