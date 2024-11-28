@@ -86,7 +86,11 @@ export async function POST({ request }) {
 		);
 	} else {
 		return new Response(
-			JSON.stringify({ message: 'User with this email already exists', status: 401 }),
+			JSON.stringify({
+				message: 'User with this email already exists',
+				status: 401,
+				redirect: '/'
+			}),
 			{
 				status: 401,
 				headers: {

@@ -49,14 +49,30 @@ export async function POST({ request }) {
 	});
 
 	if (!user) {
-		return new Response(JSON.stringify({ message: 'User not found', status: 401 }), {
-			status: 401,
-			headers: {
-				'Content-Type': 'application/json'
+		return new Response(
+			JSON.stringify({ message: 'User not found', status: 401, redirect: '/register' }),
+			{
+				status: 401,
+				headers: {
+					'Content-Type': 'application/json'
+				}
 			}
-		});
+		);
+	} else if (user.verified == false) {
+		return new Response(
+			JSON.stringify({
+				message: 'User not verified',
+				status: 401,
+				redirect: `/verify?email=${user.email}&token=${user.userAuthToken}`
+			}),
+			{
+				status: 401,
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+		);
 	}
-
 	const validation = await bcrypt.compare(body.password, user.passwordHash);
 
 	if (!validation) {
@@ -70,12 +86,15 @@ export async function POST({ request }) {
 		const expires = new Date();
 		expires.setDate(expires.getDate() + 7);
 
-		return new Response(JSON.stringify({ message: 'Login success', status: 200 }), {
-			status: 200,
-			headers: {
-				'Content-Type': 'application/json',
-				'Set-Cookie': `token=${user.userAuthToken}; Path=/; HttpOnly; Secure; SameSite=Strict; Expires=${expires.toUTCString()}`
+		return new Response(
+			JSON.stringify({ message: 'Login success', status: 200, redirect: '/app' }),
+			{
+				status: 200,
+				headers: {
+					'Content-Type': 'application/json',
+					'Set-Cookie': `token=${user.userAuthToken}; Path=/; HttpOnly; Secure; SameSite=Strict; Expires=${expires.toUTCString()}`
+				}
 			}
-		});
+		);
 	}
 }
