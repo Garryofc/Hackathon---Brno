@@ -6,12 +6,18 @@
 </script>
 
 <main class="flex flex-col items-center justify-center bg-[url('/landingBG.jpg')] bg-cover bg-center w-[100vw] h-[100vh] pt-8">
-    <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">
-        <span class="text-black">Level up your </span>
-        <span class="text-primary font-bold">Facebook</span>
-        <span class="text-black"> ads with </span>
-        <span class="text-primary font-bold">AI</span>
+    <div class="mb-20">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-center ">
+        Level up your
+        <span class="text-primary relative inline-block">
+            Facebook
+            <img class="absolute left-0 bottom-0 w-full h-fit translate-y-[55%]" src="/underline.png" alt="underline">
+
+        </span>
+        ads with
+        <span class="text-primary">AI</span>
     </h1>
+    </div>
     
     <Card.Root class="w-full max-w-sm">
         <Card.Header>
