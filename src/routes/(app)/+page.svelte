@@ -8,9 +8,9 @@
 <main class="flex flex-col items-center justify-center bg-[url('/landingBG.jpg')] bg-cover bg-center w-[100vw] h-[100vh] pt-8">
     <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">
         <span class="text-black">Level up your </span>
-        <span class="text-blue-500 font-bold">Facebook</span>
+        <span class="text-primary font-bold">Facebook</span>
         <span class="text-black"> ads with </span>
-        <span class="text-blue-500 font-bold">AI</span>
+        <span class="text-primary font-bold">AI</span>
     </h1>
     
     <Card.Root class="w-full max-w-sm">
