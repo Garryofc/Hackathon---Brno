@@ -5,14 +5,18 @@
     import { Label } from "$lib/components/ui/label/index.js";
 
     import { Auth } from "$lib/scripts/auth.js";
-    
+
     var register_data = {
-		full_name: '',
+		name: '',
 		email: '',
 		password: '',
-        confirm_password: '',
+        passwordConfirm: '',
 	};
 
+    async function handleSubmit(event: Event) {
+        event.preventDefault();
+        await Auth.register(register_data);
+    }
     </script>
   
   <main class="flex flex-col items-center justify-center bg-[url('/landingBG.jpg')] bg-cover bg-center w-[100vw] h-[100vh]">
@@ -22,24 +26,24 @@
         <img class="absolute left-0 bottom-0 w-full h-fit translate-y-[53%]" src="/underline.png" alt="underline">
         
       </span>
-       ads with
+      ads with
       <span class="text-primary font-bold">AI</span>
   </h1>
       <Card.Root class="w-full max-w-sm">
+        <form on:submit={handleSubmit}>
           <Card.Header>
             <Card.Title class="text-2xl">Register</Card.Title>
             <Card.Description>Enter your email below to register a new account.</Card.Description>
           </Card.Header>
           <Card.Content class="grid gap-4">
-            <form on:submit={Auth.register}>
 
             <div class="grid gap-2">
               <Label for="email">Full Name</Label>
-              <Input bind:value={register_data.full_name} id="email" type="email" placeholder="John Doe" required />
+              <Input bind:value={register_data.name} id="name" type="name" placeholder="Alex Morgan" required />
             </div>
             <div class="grid gap-2">
                 <Label for="email">Email</Label>
-                <Input bind:value={register_data.email} id="email" type="email" placeholder="jannovak@seznam.cz" required />
+                <Input bind:value={register_data.email} id="email" type="email" placeholder="alexmorgan@gmail.com" required />
               </div>
             <div class="grid gap-2">
               <Label for="password">Password</Label>
@@ -47,18 +51,18 @@
             </div>
             <div class="grid gap-2">
                 <Label for="password">Confirm Password</Label>
-                <Input bind:value={register_data.confirm_password} id="password" type="password" required />
+                <Input bind:value={register_data.passwordConfirm} id="password" type="password" required />
             </div>
             <div class="text-right">
               <a href="/" class="text-sm text-primary hover:underline">
                  Already have an account?
               </a>
             </div>
-            </form>
           </Card.Content>
           <Card.Footer>
-            <Button class="w-full">Register</Button>
+            <Button type='submit' class="w-full">Register</Button>
           </Card.Footer>
+        </form>
         </Card.Root>
   </main>
     
