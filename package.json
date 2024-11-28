@@ -38,6 +38,7 @@
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@types/bcrypt": "^5.0.2",
 		"@types/nodemailer": "^6.4.16",
 		"@types/uuid": "^10.0.0",
 		"autoprefixer": "^10.4.20",
