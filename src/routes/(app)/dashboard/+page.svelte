@@ -21,8 +21,11 @@
     import * as Sheet from "$lib/components/ui/sheet/index.js";
     import * as Table from "$lib/components/ui/table/index.js";
     import { onMount } from "svelte";
-	import { Description } from "formsnap";
-	import { Content } from "$lib/components/ui/accordion/index.js";
+	  import { Description } from "formsnap";
+	  import { Content } from "$lib/components/ui/accordion/index.js";
+    import * as Tabs from "$lib/components/ui/tabs/index.js";
+    import { Label } from "$lib/components/ui/label/index.js";
+
 
 
 
@@ -52,12 +55,51 @@
       
       
     </nav>
-    <main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
-      <div class="h-[10vh]">
-        Dashboard
-        <div>Neco4x</div>
-
-      </div>
+    <main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 bg-[#FFFFFF]">
+      <div class="flex flex-col justify-between h-[10vh] px-6">
+        <div class="flex items-center justify-between">
+          <h1 class="text-4xl font-black">Dashboard</h1>
+          
+          <div class="flex items-center space-x-4">
+            <button class="flex items-center px-4 py-2 bg-white border rounded-md hover:bg-gray-100 transition duration-200">
+              <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z" />
+              </svg>
+              AB Tests Required
+            </button>
+      
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200">
+              Run Ads
+            </button>
+          </div>
+        </div>
+      
+        <Tabs.Root value="month" class="mt-4 w-[20%]">
+          <Tabs.List class="grid grid-cols-4 bg-gray-100 rounded-md">
+            <Tabs.Trigger 
+              value="day" 
+              class="px-3 py-1 text-sm rounded-md hover:bg-white transition duration-200">
+              Day
+            </Tabs.Trigger>
+            <Tabs.Trigger 
+              value="week" 
+              class="px-3 py-1 text-sm rounded-md hover:bg-white transition duration-200">
+              Week
+            </Tabs.Trigger>
+            <Tabs.Trigger 
+              value="month" 
+              class="px-3 py-1 text-sm rounded-md hover:bg-white transition duration-200">
+              Month
+            </Tabs.Trigger>
+            <Tabs.Trigger 
+              value="year" 
+              class="px-3 py-1 text-sm rounded-md hover:bg-white transition duration-200">
+              Year
+            </Tabs.Trigger>
+          </Tabs.List>
+        </Tabs.Root>
+      </div>      
+      
       <div class="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <Card.Root>
           <Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
