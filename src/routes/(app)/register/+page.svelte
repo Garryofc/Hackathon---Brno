@@ -41,19 +41,19 @@
 
             <div class="grid gap-2">
               <Label for="email">Full Name</Label>
-              <Input bind:value={register_data.name} placeholder="Alex Morgan" required />
+              <Input bind:value={register_data.name} placeholder="Alex Morgan" />
             </div>
             <div class="grid gap-2">
                 <Label for="email">Email</Label>
-                <Input bind:value={register_data.email} placeholder="alexmorgan@gmail.com" required />
+                <Input bind:value={register_data.email} placeholder="alexmorgan@gmail.com" />
               </div>
             <div class="grid gap-2">
               <Label for="password">Password</Label>
-              <Input bind:value={register_data.password} type="password" required />
+              <Input bind:value={register_data.password} type="password" />
             </div>
             <div class="grid gap-2">
                 <Label for="password">Confirm Password</Label>
-                <Input bind:value={register_data.passwordConfirm} type="password" required />
+                <Input bind:value={register_data.passwordConfirm} type="password" />
             </div>
             <div class="text-right">
               <a href="/" class="text-sm text-primary hover:underline">

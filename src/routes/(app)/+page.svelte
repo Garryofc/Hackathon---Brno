@@ -42,11 +42,11 @@
         <Card.Content class="grid gap-4">
             <div class="grid gap-2">
                 <Label for="email">Email</Label>
-                <Input bind:value={login_data.email} id="email" type="email" placeholder="alexmorgan@gmail.com" required />
+                <Input bind:value={login_data.email} id="email" type="email" placeholder="alexmorgan@gmail.com" />
             </div>
             <div class="grid gap-2">
                 <Label for="password">Password</Label>
-                <Input bind:value={login_data.password} id="password" type="password" required />
+                <Input bind:value={login_data.password} id="password" type="password" />
             </div>
             <div class="text-right">
                 <a href="/register" class="text-sm text-blue-500 hover:underline">

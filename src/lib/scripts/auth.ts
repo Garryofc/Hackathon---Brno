@@ -3,6 +3,14 @@ import { toast } from "svelte-sonner";
 var email_regex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,4}$/;
 export class Auth {
     static async login(loginData: any) {
+        if (!loginData.email) {
+            toast.error("Invalid email format!");
+        }
+
+        if (!loginData.password) {
+            toast.error("Fill out the password form!");
+        }
+
 		try {
             const response = await fetch('/api/auth/login', {
                 method: 'POST',
@@ -28,9 +36,9 @@ export class Auth {
 	}
 
     static async register(registerData: any) {
-        if () {
-
-
+        if (!registerData.name) {
+            toast.error("Name cannot be empty!")
+            return
         }
         if (!email_regex.test(registerData.email)) {
             toast.error("Invalid email format!")
