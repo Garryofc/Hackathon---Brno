@@ -27,7 +27,7 @@
         <Card.Content class="grid gap-4">
             <div class="grid gap-2">
                 <Label for="email">Email</Label>
-                <Input id="email" type="email" placeholder="jannovak@seznam.cz" required />
+                <Input id="email" type="email" placeholder="alexmorgan@gmail.com" required />
             </div>
             <div class="grid gap-2">
                 <Label for="password">Password</Label>
