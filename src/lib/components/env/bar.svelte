@@ -75,7 +75,7 @@
 	$: barWidth = innerWidth / xTicks.length;
 </script>
 
-<div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
+<div class="chart h-full" bind:clientWidth={width} bind:clientHeight={height}>
 	<svg>
 		<!-- y axis -->
 		<g class="axis y-axis">
@@ -89,7 +89,7 @@
 						height="310"
 						x="57"
 						y="-4"
-						fill="#888888"
+						fill="gray"
 						text-anchor="end"><tspan x="36" dy="0.355em">${tick}</tspan></text
 					>
 				</g>
@@ -108,7 +108,7 @@
 						height="30"
 						x={barWidth / 2}
 						y="-15"
-						fill="#888888"
+						fill="gray"
 						text-anchor="middle"
 						><tspan x={barWidth / 2} dy="0.71em"
 							>{width > 380 ? point.name : formatMobile(point.name)}</tspan
@@ -126,7 +126,7 @@
 					y={yScale(point.total)}
 					width={barWidth - 8}
 					height={yScale(0) - yScale(point.total)}
-					fill="currentColor"
+					fill="blue"
 					rx="4"
 					ry="4"
 				/>
