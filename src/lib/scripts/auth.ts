@@ -122,6 +122,75 @@ export class Auth {
 			});
 	}
 
+	static async verificationinit() {
+		const params = new URLSearchParams(window.location.search);
+		const email = params.get('email');
+		const authToken = params.get('token');
+		if (!email || !authToken) {
+			toast.error('Invalid verification link!');
+			return;
+		}
+
+		await fetch('/api/auth/verifyInit', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			credentials: 'include',
+			body: JSON.stringify({ email, authToken })
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				if (data.status != 200) {
+					toast.error(data.message);
+					if (data.redirect) {
+						location.href = data.redirect;
+					}
+				} else {
+					toast.success(data.message);
+					if (data.redirect) {
+						location.href = data.redirect;
+					}
+				}
+			});
+	}
+
+	static async verify(code: string) {
+		const params = new URLSearchParams(window.location.search);
+		const email = params.get('email');
+		const authToken = params.get('token');
+		if (!email || !authToken || !code) {
+			toast.error('Code is required!');
+			return;
+		} else if (code.length != 6) {
+			toast.error('Invalid code!');
+			return;
+		}
+
+		await fetch('/api/auth/verify', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			credentials: 'include',
+			body: JSON.stringify({ email, authToken, code })
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				if (data.status != 200) {
+					toast.error(data.message);
+					if (data.redirect) {
+						location.href = data.redirect;
+					}
+				} else {
+					toast.success(data.message);
+					if (data.redirect) {
+						location.href = data.redirect;
+					}
+				}
+			});
+	}
+
 	static logout() {
 		console.log('logout');
 	}

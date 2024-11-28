@@ -1,11 +1,19 @@
 <script lang="ts">
-  import { PinInput } from "bits-ui";
-  import { Button } from "$lib/components/ui/button/index.js";
+	import { PinInput } from 'bits-ui';
+	import { Button } from '$lib/components/ui/button/index.js';
+	import { onMount } from 'svelte';
+	import { Auth } from '$lib/scripts/auth.js';
+	export let data;
 
+	let value: any = [];
 
-
-  let value: string[] | undefined = [];
-
+	onMount(async () => {
+		if (data.status == 200) {
+			location.href = '/app';
+		} else {
+			await Auth.verificationinit();
+		}
+	});
 </script>
 
 <main
@@ -18,35 +26,34 @@
 			<span class="text-primary">email</span>:
 		</h1>
 	</div>
-    <div class="p-[19px] bg-white rounded-[12px]">
-    <PinInput.Root
-  bind:value
-  class="flex items-center gap-2 mb-[12px]"
-  placeholder="0"
->
-  <PinInput.Input
-    class="flex h-12 w-10 select-none rounded-lg border border-slate-300 border-b-4 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
-  />
-  <PinInput.Input
-    class="flex h-12 w-10 select-none rounded-lg border border-slate-300 border-b-4 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
-  />
-  <PinInput.Input
-    class="flex h-12 w-10 select-none rounded-lg border border-slate-300 border-b-4 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
-  />
-     - 
-  <PinInput.Input
-    class="flex h-12 w-10 select-none rounded-lg border border-slate-300 border-b-4 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
-  />
-  <PinInput.Input
-  class="flex h-12 w-10 select-none rounded-lg border border-slate-300 border-b-4 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
-/>
-<PinInput.Input
-class="flex h-12 w-10 select-none rounded-lg border border-slate-300 border-b-4 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
-/>
-  <PinInput.HiddenInput />
-</PinInput.Root>
-<Button class='w-[100%]'>
-    Confirm
-</Button>
-</div>
+	<div class="rounded-[12px] bg-white p-[19px]">
+		<PinInput.Root bind:value class="mb-[12px] flex items-center gap-2" placeholder="0">
+			<PinInput.Input
+				class="flex h-12 w-10 select-none rounded-lg border border-b-4 border-slate-300 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
+			/>
+			<PinInput.Input
+				class="flex h-12 w-10 select-none rounded-lg border border-b-4 border-slate-300 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
+			/>
+			<PinInput.Input
+				class="flex h-12 w-10 select-none rounded-lg border border-b-4 border-slate-300 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
+			/>
+			-
+			<PinInput.Input
+				class="flex h-12 w-10 select-none rounded-lg border border-b-4 border-slate-300 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
+			/>
+			<PinInput.Input
+				class="flex h-12 w-10 select-none rounded-lg border border-b-4 border-slate-300 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
+			/>
+			<PinInput.Input
+				class="flex h-12 w-10 select-none rounded-lg border border-b-4 border-slate-300 border-b-slate-400 bg-slate-200 px-2 py-3 text-center font-mono text-[17px] tracking-wide text-slate-700 placeholder-shown:border-slate-200 focus-within:border-slate-400 focus-within:shadow focus-within:outline-none"
+			/>
+			<PinInput.HiddenInput />
+		</PinInput.Root>
+		<Button
+			on:click={async () => {
+				Auth.verify(value.join(''));
+			}}
+			class="w-[100%]">Confirm</Button
+		>
+	</div>
 </main>
