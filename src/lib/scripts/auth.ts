@@ -1,6 +1,6 @@
 import { toast } from "svelte-sonner";
 
-
+var email_regex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,4}$/;
 export class Auth {
     static async login(loginData: any) {
 		try {
@@ -28,6 +28,18 @@ export class Auth {
 	}
 
     static async register(registerData: any) {
+        if () {
+
+
+        }
+        if (!email_regex.test(registerData.email)) {
+            toast.error("Invalid email format!")
+            return
+        } else  if(registerData.password != registerData.confirmPassword)
+        {
+            toast.error("Passwords do not match!")
+            return
+        }
         try {
             const response = await fetch('/api/auth/registration', {
                 method: 'POST',

@@ -3,7 +3,6 @@
     import * as Card from "$lib/components/ui/card/index.js";
     import { Input } from "$lib/components/ui/input/index.js";
     import { Label } from "$lib/components/ui/label/index.js";
-
     import { Auth } from "$lib/scripts/auth.js";
 
     var register_data = {
@@ -42,11 +41,11 @@
 
             <div class="grid gap-2">
               <Label for="email">Full Name</Label>
-              <Input bind:value={register_data.name} type="name" placeholder="Alex Morgan" required />
+              <Input bind:value={register_data.name} placeholder="Alex Morgan" required />
             </div>
             <div class="grid gap-2">
                 <Label for="email">Email</Label>
-                <Input bind:value={register_data.email} type="email" placeholder="alexmorgan@gmail.com" required />
+                <Input bind:value={register_data.email} placeholder="alexmorgan@gmail.com" required />
               </div>
             <div class="grid gap-2">
               <Label for="password">Password</Label>
