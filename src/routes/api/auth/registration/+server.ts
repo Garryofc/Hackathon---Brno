@@ -16,7 +16,7 @@ var email_regex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,4}$/;
 export async function POST({ request }) {
 	const body = await request.json();
 
-	if (!body.email || !body.password || !body.email.name || !body.passwordConfirm) {
+	if (!body.email || !body.password || !body.name || !body.passwordConfirm) {
 		return new Response(
 			JSON.stringify({ message: 'Email and password are required', status: 401 }),
 			{
