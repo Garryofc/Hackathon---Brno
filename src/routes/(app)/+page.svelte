@@ -22,7 +22,7 @@
 <main
 	class="flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-[url('/landingBG.jpg')] bg-cover bg-center pt-8"
 >
-	<div class="mb-20">
+	<div class="mb-20 select-none">
 		<h1 class="text-center text-4xl font-extrabold md:text-5xl">
 			Level up your
 			<span class="relative inline-block text-primary">
