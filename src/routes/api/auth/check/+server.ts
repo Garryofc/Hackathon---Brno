@@ -2,7 +2,19 @@ import { db } from '$lib/db.js';
 
 export async function GET({ request }) {
 	var cookies = request.headers.get('Cookie');
-	var session = cookies?.split('userAuthToken=')[1].split(';')[0];
+	if (!cookies) {
+		return new Response(
+			JSON.stringify({ message: 'No token provided', status: 401, redirect: '/' }),
+			{
+				status: 401,
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+		);
+	}
+
+	var session = cookies.split('AuthSession=')[1]?.split(';')[0];
 
 	if (!session) {
 		return new Response(
