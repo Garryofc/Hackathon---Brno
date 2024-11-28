@@ -1,21 +1,3 @@
 {
-	"/": [],
-	"/api/callback/getName": [
-		"src/routes/api/callback/getName/+server.ts"
-	],
-	"/api/callback/getSurname": [
-		"src/routes/api/callback/getSurname/+server.ts"
-	],
-	"/api/callback/trueFalse": [
-		"src/routes/api/callback/trueFalse/+server.ts"
-	],
-	"/api/exec": [
-		"src/routes/api/exec/+server.ts"
-	],
-	"/api/session/changing": [
-		"src/routes/api/session/changing/+server.ts"
-	],
-	"/api/setup/1": [
-		"src/routes/api/setup/1/+server.ts"
-	]
+	"/": []
 }
