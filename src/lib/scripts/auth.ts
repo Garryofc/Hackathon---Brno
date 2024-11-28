@@ -63,7 +63,7 @@ export class Auth {
 		} else if (registerData.passwordConfirm === '') {
 			toast.error('Password confirmation cannot be empty!');
 		} else if (!email_regex.test(registerData.email)) {
-			toast.error('Invalid email format! Supported format: john.doe@email.com');
+			toast.error('Invalid email format! Supported format: alan.morgan123@email.com');
 		} else if (registerData.password.length < 6) {
 			toast.error('Password must be longer than 6 characters!');
 		} else if (registerData.password !== registerData.passwordConfirm) {
