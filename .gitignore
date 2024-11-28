@@ -19,4 +19,6 @@ vite.config.js.timestamp-*
 .test-tmp
 symlink-from
 .idea/
-.svelte-kit/generated/server/internal.js
+.svelte-kit/internal.js
+.svelte-kit/ambient.d.ts
+
