@@ -5,10 +5,12 @@ export class Auth {
     static async login(loginData: any) {
         if (!loginData.email) {
             toast.error("Invalid email format!");
+            return
         }
 
         if (!loginData.password) {
             toast.error("Fill out the password form!");
+            return
         }
 
 		try {
@@ -43,7 +45,7 @@ export class Auth {
         if (!email_regex.test(registerData.email)) {
             toast.error("Invalid email format!")
             return
-        } else  if(registerData.password != registerData.confirmPassword)
+        } else if(registerData.password != registerData.passwordConfirm)
         {
             toast.error("Passwords do not match!")
             return
