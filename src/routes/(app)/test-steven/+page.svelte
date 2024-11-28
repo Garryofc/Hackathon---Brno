@@ -3,3 +3,5 @@
 </script>
 
 <main class="h-[100vh] w-[100vw] bg-black"></main>
+
+<FbConnect />
