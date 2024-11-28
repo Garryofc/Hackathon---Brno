@@ -3,6 +3,16 @@
     import * as Card from "$lib/components/ui/card/index.js";
     import { Input } from "$lib/components/ui/input/index.js";
     import { Label } from "$lib/components/ui/label/index.js";
+
+    import { Auth } from "$lib/scripts/auth.js";
+    
+    var register_data = {
+		full_name: '',
+		email: '',
+		password: '',
+        confirm_password: '',
+	};
+
     </script>
   
   <main class="flex flex-col items-center justify-center bg-[url('/landingBG.jpg')] bg-cover bg-center w-[100vw] h-[100vh]">
@@ -21,27 +31,30 @@
             <Card.Description>Enter your email below to register a new account.</Card.Description>
           </Card.Header>
           <Card.Content class="grid gap-4">
+            <form on:submit={Auth.register}>
+
             <div class="grid gap-2">
               <Label for="email">Full Name</Label>
-              <Input id="email" type="email" placeholder="John Doe" required />
+              <Input bind:value={register_data.full_name} id="email" type="email" placeholder="John Doe" required />
             </div>
             <div class="grid gap-2">
                 <Label for="email">Email</Label>
-                <Input id="email" type="email" placeholder="jannovak@seznam.cz" required />
+                <Input bind:value={register_data.email} id="email" type="email" placeholder="jannovak@seznam.cz" required />
               </div>
             <div class="grid gap-2">
               <Label for="password">Password</Label>
-              <Input id="password" type="password" required />
+              <Input bind:value={register_data.password} id="password" type="password" required />
             </div>
             <div class="grid gap-2">
                 <Label for="password">Confirm Password</Label>
-                <Input id="password" type="password" required />
+                <Input bind:value={register_data.confirm_password} id="password" type="password" required />
             </div>
             <div class="text-right">
               <a href="/" class="text-sm text-primary hover:underline">
                  Already have an account?
               </a>
             </div>
+            </form>
           </Card.Content>
           <Card.Footer>
             <Button class="w-full">Register</Button>
