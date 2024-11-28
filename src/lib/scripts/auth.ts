@@ -1,17 +1,38 @@
 export class Auth {
-	static login() {
-		console.log('login');
+    static async login() {
+
 	}
 
-	static register() {
-		console.log('register');
-	}
+    static async register(registerData: any) {
+        try {
+            const response = await fetch('/api/auth/registration', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                body: JSON.stringify(registerData)
+            });
 
-	static check() {
-		console.log('check');
-	}
+            const data = await response.json();
 
-	static logout() {
-		console.log('logout');
-	}
+            if (data.redirect) {
+                location.href = data.redirect;
+            } else {
+                console.error(data.message);
+                alert(`Error: ${data.message}`);
+            }
+        } catch (error) {
+            console.error('Error during registration:', error);
+            alert('An unexpected error occurred.');
+        }
+    }
+
+    static check() {
+        console.log('check');
+    }
+
+    static logout() {
+        console.log('logout');
+    }
 }
