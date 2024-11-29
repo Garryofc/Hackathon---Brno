@@ -82,8 +82,8 @@
 			</Popover.Content>
 		</Popover.Root>
 
-		<a href="TBA">Overview</a>
-		<a href="TBA">Ads</a>
+		<a href="/app">Overview</a>
+		<a href="/app/ads">Ads</a>
 	</div>
 
 	<div class="flex items-center space-x-6">
