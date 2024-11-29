@@ -92,7 +92,7 @@
 				</Card.Content>
 			</Card.Root>
 
-			<Card.Root class="col-span-3">
+			<Card.Root class="col-span-3 flex h-full flex-col justify-between">
 				<Card.Header class="flex flex-row items-center justify-between">
 					<div class="flex h-full flex-col justify-between">
 						<Card.Title class="flex items-center justify-between">Favourite products</Card.Title>
@@ -100,17 +100,27 @@
 					</div>
 					<Icon.ShoppingBag class="h-4 w-4 " />
 				</Card.Header>
-				<Card.Content class="flex flex-col gap-2">
+				<Card.Content class="flex flex-col gap-3">
 					{#each Array(5) as _, i}
-						<div class="flex h-fit w-full items-center justify-between rounded-xl border px-5 py-3 shadow-lg">
-							<div class="flex flex-col items-center">
-								<h2 class="text-xl font-bold">36%</h2>
+						{#if i === 0}
+							<div class="flex h-fit w-full items-center justify-between rounded-xl border px-4 py-3 shadow-lg">
+								<div class="flex flex-col items-center">
+									<h2 class="text-xl font-bold">36%</h2>
+									<p class="text-xs font-semibold">Product {i + 1}</p>
+								</div>
+								<Button class="h-fit px-3 py-2">Create Ad</Button>
+							</div>
+						{:else}
+							<div class="flex h-fit w-full items-center justify-between rounded-xl border px-4 py-2.5 shadow-lg">
+								<h2 class="text-sm">36%</h2>
 								<p class="text-xs font-semibold">Product {i + 1}</p>
 							</div>
-							<Button class="h-fit px-3 py-2">Create Ad</Button>
-						</div>
+						{/if}
 					{/each}
 				</Card.Content>
+				<Card.Footer class="flex justify-center">
+					<Button class="flex w-fit gap-2 px-4"><Icon.CirclePlus class="h-4 w-4" />Add product</Button>
+				</Card.Footer>
 			</Card.Root>
 
 			<Card.Root class="col-span-2">
