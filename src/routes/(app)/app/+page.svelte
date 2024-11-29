@@ -5,8 +5,12 @@
 	import { onMount } from 'svelte';
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 	import Button from '$lib/components/ui/button/button.svelte';
+	import RunAds1 from '$lib/components/env/RunAds1.svelte';
+	import RunAds2 from '$lib/components/env/RunAds2.svelte';
 	import {Auth} from '$lib/scripts/auth.js'
 	let fullMounted: boolean = false;
+
+	let runAdsss = false;
 
 	onMount(() => {
 		fullMounted = true;
@@ -19,6 +23,10 @@
 
 {#if fullMounted}
 	<main class="flex h-full grow flex-col justify-evenly gap-4 bg-[#FFFFFF] px-12 py-8">
+		{#if runAdsss}
+			<RunAds2 />
+		{/if}
+		<!-- <RunAds1 /> -->
 		<div class="flex flex-col justify-between">
 			<div class="flex items-center justify-between">
 				<h1 class="text-4xl font-black">Dashboard</h1>
@@ -30,7 +38,7 @@
 						AB Tests Required
 					</button>
 
-					<button class="rounded-md bg-blue-500 px-4 py-2 text-white transition duration-200 hover:bg-blue-600"> Run Ads </button>
+					<Button class="transition duration-300 px-4 py-2" on:click={() => runAdsss = true}> Run Ads </Button>
 				</div>
 			</div>
 
