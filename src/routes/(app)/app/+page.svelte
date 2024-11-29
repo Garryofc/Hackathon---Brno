@@ -26,7 +26,7 @@
 						AB Tests Required
 					</button>
 
-					<button class="rounded-md bg-blue-500 px-4 py-2 text-white transition duration-200 hover:bg-blue-600"> Run Ads </button>
+					<Button class="transition duration-300 px-4 py-2"> Run Ads </Button>
 				</div>
 			</div>
 

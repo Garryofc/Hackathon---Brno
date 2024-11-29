@@ -126,7 +126,7 @@
 					y={yScale(point.total)}
 					width={barWidth - 8}
 					height={yScale(0) - yScale(point.total)}
-					fill="blue"
+					fill="#4E6BF3"
 					rx="4"
 					ry="4"
 				/>
