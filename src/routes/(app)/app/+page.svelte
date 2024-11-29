@@ -5,12 +5,16 @@
 	import { onMount } from 'svelte';
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 	import Button from '$lib/components/ui/button/button.svelte';
-
+	import {Auth} from '$lib/scripts/auth.js'
 	let fullMounted: boolean = false;
 
 	onMount(() => {
 		fullMounted = true;
 	});
+
+	const logout = () => {
+		Auth.logout();
+	}
 </script>
 
 {#if fullMounted}

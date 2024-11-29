@@ -191,7 +191,29 @@ export class Auth {
 			});
 	}
 
-	static logout() {
-		console.log('logout');
+	static async logout() {
+		try {
+			await fetch('/api/auth/logout', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				credentials: 'include'
+			})
+				.then((res) => res.json())
+				.then((data) => {
+					if (data.status === 200) {
+						toast.success(data.message);
+						if (data.redirect) {
+							location.href = data.redirect; // Redirect to the login or homepage
+						}
+					} else {
+						toast.error(data.message || 'Logout failed.');
+					}
+				});
+		} catch (error) {
+			console.error('Error during logout:', error);
+			toast.error('An unexpected error occurred during logout.');
+		}
 	}
 }
