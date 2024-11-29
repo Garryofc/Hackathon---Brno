@@ -48,7 +48,6 @@
 		"cmdk-sv": "^0.0.18",
 		"embla-carousel-svelte": "^8.5.1",
 		"formsnap": "^1.0.1",
-		"lucide-svelte": "^0.462.0",
 		"mode-watcher": "^0.4.1",
 		"paneforge": "^0.0.6",
 		"prettier": "^3.3.2",
@@ -72,6 +71,7 @@
 		"@prisma/client": "^5.22.0",
 		"bcrypt": "^5.1.1",
 		"d3-scale": "^4.0.2",
+		"lucide-svelte": "^0.462.0",
 		"nodemailer": "^6.9.15",
 		"openai": "^4.69.0",
 		"uuid": "^10.0.0"

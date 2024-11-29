@@ -29,9 +29,8 @@ export async function GET({ request }) {
 	}
 
 	const user = await db.user.findFirst({
-		select: {
-			id: true,
-			verified: true
+		include: {
+			accounts: true
 		},
 		where: {
 			userAuthToken: session
@@ -56,7 +55,18 @@ export async function GET({ request }) {
 			}
 		);
 	} else {
-		return new Response(JSON.stringify({ status: 200 }), {
+		var accounts = user.accounts.map((acc: any) => {
+			return {
+				id: acc.id,
+				facebookID: acc.facebookID,
+				userID: acc.userID,
+				accountName: acc.accountName,
+				accountType: acc.accountType,
+				user: acc.user
+			};
+		});
+
+		return new Response(JSON.stringify({ status: 200, accounts }), {
 			status: 200,
 			headers: {
 				'Content-Type': 'application/json'

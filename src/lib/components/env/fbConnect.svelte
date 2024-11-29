@@ -4,7 +4,7 @@
 
 {#if $addFb}
 	<main
-		class="fixed left-0 top-0 flex h-full w-full flex-col items-center justify-center gap-12 bg-white"
+		class="fixed left-0 top-0 z-20 flex h-full w-full flex-col items-center justify-center gap-12 bg-white"
 	>
 		<h1 class="text-center text-4xl font-bold md:text-5xl">
 			Add your

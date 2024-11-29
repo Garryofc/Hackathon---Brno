@@ -16,6 +16,21 @@ model User {
   code          String?
   verified      Boolean  @default(false)
 
+  accounts      Accounts[]
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Accounts{
+  id            String   @id @default(uuid())
+  facebookID    String   @unique
+  userID        String
+  accountName   String
+  accountType   String
+
+  user         User     @relation(fields: [userID], references: [id])
+
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }

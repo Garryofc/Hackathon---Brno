@@ -1,12 +1,14 @@
 import { writable } from 'svelte/store';
 
 type fbAcc = {
-	accName: string;
 	id: string;
-	email: string;
-	fbToken: string;
+	facebookID: string;
+	userID: string;
+	accountName: string;
+	accountType: String;
+	user: any;
 };
 type fbAccArray = fbAcc[];
 
-export const addFb = writable<boolean>(true);
+export const addFb = writable<boolean>(false);
 export const _fbAcc = writable<fbAccArray>([]);
